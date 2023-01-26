@@ -16,8 +16,8 @@ const Card = () => {
           <p>4.88</p>
         </div>
       </div>
-      <p style={{ marginTop: 0 }}>Beach and Ocean Views</p>
-      <p style={{ marginTop: 0 }}>1-6 February</p>
+      <p>Beach and Ocean Views</p>
+      <p>1-6 February</p>
     </div>
   );
 };

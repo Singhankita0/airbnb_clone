@@ -14,7 +14,9 @@ const Header = () => {
     <>
       <div className="header">
         {/* <img src="" alt="logo" className="logo" /> */}
-        <AirbnbIcon />
+        <div className="logo">
+          <AirbnbIcon />
+        </div>
 
         <div className="search_box">
           <div className="search_box_text">Any Where</div>
