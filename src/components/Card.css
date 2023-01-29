@@ -13,13 +13,12 @@
     /* justify-content: flex-start; */
     /* align-items: center; */
     /* flex-wrap: wrap; */
-    width:400px;
-    padding: 12px;
+    padding: 16px 8px;
     overflow: hidden;
 }
 .card_img{
     overflow: hidden;
-    height: 300px;
+    height: 270px;
     object-fit: contain;
     border-radius: 10px;
 }
@@ -30,7 +29,12 @@
 .card_info{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    padding: 8px 0;
+}
+.card_info h3 {
+    font-size: 16px;
+    font-weight: 500;
 }
 .card_rating{
     display: flex;
