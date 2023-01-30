@@ -1,23 +1,23 @@
 import React from "react";
 import "./Card.css";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
-import img from "../images/card.jpg";
+import getSymbolFromCurrency from "currency-symbol-map"
 
-const Card = () => {
+const Card = ({name, city, price, rating, img}) => {
   return (
     <div className="card_container">
       <div className="card_img">
         <img src={img} alt="" />
       </div>
       <div className="card_info">
-        <h3 className="card_title">Place</h3>
+        <h3 className="card_title">{name}, {city}</h3>
         <div className="card_rating">
           <StarRoundedIcon />
-          <p>4.88</p>
+          <p>{rating}</p>
         </div>
       </div>
-      <p style={{ marginTop: 0 }}>Beach and Ocean Views</p>
-      <p style={{ marginTop: 0 }}>1-6 February</p>
+      <p>{getSymbolFromCurrency(price.currency)}{price.total}{" "}night</p>
+      {/* <p>1-6 February</p> */}
     </div>
   );
 };
