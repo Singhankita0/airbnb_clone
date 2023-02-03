@@ -1,10 +1,12 @@
 import Card from "./Card";
 import "./Listings.css";
 
-const Listings = () => {
+const Listings = ({searchResults}) => {
+  const availableProperties = searchResults.length > 0 ? searchResults : data.results;
+
   return (
     <div className="listing_container">
-      {data.results.map(result => (
+      {availableProperties.map(result => (
         <Card name={result.address} city={result.city} price={result.price} rating={result.rating} img={result.images[0]} />
       ))}
     </div>

@@ -14,7 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-const Header = () => {
+const Header = ({setSearchResults}) => {
 
   return (
     <>
@@ -32,7 +32,7 @@ const Header = () => {
             <SearchRoundedIcon className="search_icon" />
           </div>
         </div> */}
-        <SearchBox />
+        <SearchBox setSearchResults={setSearchResults} />
 
         <div className="header_right">
           <div className="airbnb_your_home">Airbnb your home</div>
@@ -50,11 +50,7 @@ const Header = () => {
 export default Header;
 
 
-const SearchBox = () => {
-
-  const[startFilter, setStartFilter] =useState(false);
-  
-
+const SearchBox = ({setSearchResults}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const destination = e.target.destination.value;
@@ -75,7 +71,7 @@ const SearchBox = () => {
       options
     )
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((response) => setSearchResults(response.results))
       .catch((err) => console.error(err));
   };
 
