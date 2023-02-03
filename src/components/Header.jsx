@@ -10,11 +10,12 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-import "./App.css";
+// import "./App.css";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Header = () => {
+
   return (
     <>
       <div className="header">
@@ -50,6 +51,10 @@ export default Header;
 
 
 const SearchBox = () => {
+
+  const[startFilter, setStartFilter] =useState(false);
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const destination = e.target.destination.value;
@@ -77,7 +82,7 @@ const SearchBox = () => {
   return (
     <div className="App">
       <form
-        className="relative rounded-full bg-white flex pl-8 pr-4 py-4 text-black font-semibold"
+        className="form"
         onSubmit={handleSubmit}
       >
         <DestinationInput name="destination" />
@@ -85,13 +90,14 @@ const SearchBox = () => {
         <DateInput label="Check out" name="checkOutDate" />
         <GuestInput name="guests" />
         <button
-          className="px-5 py-2 bg-red-600 text-white font-semibold rounded-full"
+          className="search_btn"
           type="submit"
         >
           Search
         </button>
       </form>
     </div>
+    
   );
 }
 
@@ -99,10 +105,10 @@ const DestinationInput = ({ name }) => {
   const [destination, setDestination] = useState("");
 
   return (
-    <div className="flex flex-col items-start w-52">
+    <div className="destination_container">
       <div className="text-sm">Where</div>
       <input
-        className="border-transparent outline-none bg-transparent font-medium"
+        className="destination_input"
         placeholder="Search destinations"
         value={destination}
         onChange={(e) => setDestination(e.target.value)}
@@ -117,13 +123,13 @@ const DateInput = ({ label, name }) => {
   const [date, setDate] = useState(null);
 
   return (
-    <div className="flex flex-col items-start border-l pl-6 w-36">
+    <div className="date_container">
       <div className="text-sm">{label}</div>
       <DatePicker
         selected={date ? new Date(date) : null}
         dateFormat="yyyy-MM-dd"
         onChange={(date) => setDate(date)}
-        className="border-transparent outline-none bg-transparent font-medium"
+        className="date_input"
         placeholderText="Add dates"
         name={name}
         required
@@ -136,10 +142,10 @@ const GuestInput = ({ name }) => {
   const [guests, setGuests] = useState("");
 
   return (
-    <div className="flex flex-col items-start border-l pl-6 w-36">
+    <div className="guestinput_container">
       <div className="text-sm">Guests</div>
       <input
-        className="border-transparent outline-none bg-transparent font-medium"
+        className="guest_input"
         placeholder="No. of guests"
         type="number"
         value={guests ? Number(guests) : ""}
